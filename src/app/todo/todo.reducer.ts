@@ -1,7 +1,10 @@
 import * as fromTodo from './todo.actions';
 import { Todo } from './models/todo.model';
 
-const initialState: Todo[] = [];
+const walk = new Todo('Walk');
+const run = new Todo('Run');
+
+const initialState: Todo[] = [walk, run];
 
 export function todoReducer(state = initialState, action: fromTodo.Actions): Todo[] {
     switch (action.type) {
