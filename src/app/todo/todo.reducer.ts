@@ -14,6 +14,18 @@ export function todoReducer(state = initialState, action: fromTodo.Actions): Tod
             const todo = new Todo(action.text);
             return [...state, todo];
 
+        case fromTodo.TOGGLE_TODO:
+            return state.map((todoEdit) => {
+                if (todoEdit.id === action.id) {
+                    return {
+                        ...todoEdit,
+                        completed: !todoEdit.completed
+                    };
+                } else {
+                    return todoEdit;
+                }
+            });
+
         default:
             return state;
     }
