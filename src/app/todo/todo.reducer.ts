@@ -43,6 +43,14 @@ export function todoReducer(state = initialState, action: fromTodo.Actions): Tod
                 }
             });
 
+        case fromTodo.TOGGLE_ALL_TODO:
+            return state.map((todoEdit) => {
+                return {
+                    ...todoEdit,
+                    completed: action.completed
+                };
+            });
+
         default:
             return state;
     }
