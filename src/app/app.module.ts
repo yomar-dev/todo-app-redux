@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { todoReducer } from './todo/todo.reducer';
+import { reducers } from './app.reducers';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -30,7 +30,7 @@ import { environment } from 'src/environments/environment';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ todos: todoReducer }),
+    StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production // Restrict extension to log-only mode
